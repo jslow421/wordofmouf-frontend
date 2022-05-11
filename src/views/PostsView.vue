@@ -1,11 +1,11 @@
 <template>
-$END$
+
 </template>
 
 <script>
 export default {
-name: "PostsView"
-}
+  name: "PostsView"
+};
 </script>
 
 <style scoped>
