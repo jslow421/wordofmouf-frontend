@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <div class="header">Posts</div>
-    <div class="post-ctr">
-      <div class="post" v-for="post in posts" :key="post.PostId">
-        <span>{{ post.PostId }}</span>
-        <span>{{ post.CreatedDate }}</span>
+    <div class="post-ctr container">
+      <div class="post row" v-for="post in posts" :key="post.PostId">
+        <div class="col title">{{ post.PostTitle }}</div>
+        <div class="col">{{ post.CreatedDate }}</div>
       </div>
     </div>
-    <div class="bottom">END</div>
+    <div class="bottom"></div>
   </div>
 </template>
 <script setup>
@@ -30,4 +30,15 @@ async function getPosts() {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.post-ctr {
+  > .post {
+    border: 0.5px solid black;
+    padding: 15px;
+    > .title {
+      cursor: pointer;
+      color: #2c3e50;
+    }
+  }
+}
+</style>
