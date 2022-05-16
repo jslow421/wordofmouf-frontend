@@ -2,7 +2,16 @@
   <div class="container">
     <div class="header">Posts</div>
     <div class="post-ctr container">
-      <div class="post row" v-for="post in posts" :key="post.PostId">
+      <div class="row">
+        <div class="col">Title</div>
+        <div class="col">Date</div>
+      </div>
+      <div
+        class="post row"
+        v-for="post in posts"
+        :key="post.PostId"
+        v-on:click="selectPost(post.PostId)"
+      >
         <div class="col title">{{ post.PostTitle }}</div>
         <div class="col">{{ post.CreatedDate }}</div>
       </div>
@@ -11,8 +20,8 @@
   </div>
 </template>
 <script setup>
-import axios from "axios";
 import { onMounted, reactive } from "vue";
+import axios from "axios";
 
 let posts = reactive([]);
 
@@ -28,16 +37,22 @@ async function getPosts() {
     posts.push(val);
   });
 }
+
+async function selectPost(id) {
+  console.log("clicked ID: " + id);
+}
 </script>
 
 <style scoped lang="scss">
 .post-ctr {
   > .post {
-    border: 0.5px solid black;
+    border: 0.2px solid black;
+    margin: 10px;
     padding: 15px;
+    cursor: pointer;
     > .title {
-      cursor: pointer;
       color: #2c3e50;
+      text-decoration: underline;
     }
   }
 }
