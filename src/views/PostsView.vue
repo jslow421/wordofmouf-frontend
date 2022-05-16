@@ -10,7 +10,7 @@
         class="post row"
         v-for="post in posts"
         :key="post.PostId"
-        v-on:click="selectPost(post.PostId)"
+        @click="selectPost(post.PostId)"
       >
         <div class="col title">{{ post.PostTitle }}</div>
         <div class="col">{{ post.CreatedDate }}</div>
