@@ -20,10 +20,10 @@
   </div>
 </template>
 <script setup>
-import { onMounted, reactive } from "vue";
+import { onMounted, shallowReactive } from "vue";
 import axios from "axios";
 
-let posts = reactive([]);
+let posts = shallowReactive([]);
 
 onMounted(() => {
   getPosts();
